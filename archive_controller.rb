@@ -6,7 +6,7 @@ class ArchiveController < ApplicationController
     query = Project.visible.map { |project| "project_id = #{project.id}" }.join(" or ")
 
     if query != ''
-  	  @archive = params[:last_change_id] ? Archive.where("id > ? and (#{query})", params[:last_change_id]) : Archive.where(query)
+      @archive = params[:last_change_id] ? Archive.where("id > ? and (#{query})", params[:last_change_id]) : Archive.where(query)
     end
     @archive ||= []
     
