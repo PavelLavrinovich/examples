@@ -9,8 +9,8 @@ class ArchiveController < ApplicationController
   	  @archive = params[:last_change_id] ? Archive.where("id > ? and (#{query})", params[:last_change_id]) : Archive.where(query)
   	end
     @archive ||= []
-
-  	respond_to do |format|
+    
+    respond_to do |format|
       format.html 
       format.xml { render xml: @archive }
       format.json { render json: { archives: @archive.as_json(root: false) } } 
