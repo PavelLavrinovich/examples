@@ -7,7 +7,7 @@ class ArchiveController < ApplicationController
 
     if query != ''
   	  @archive = params[:last_change_id] ? Archive.where("id > ? and (#{query})", params[:last_change_id]) : Archive.where(query)
-  	end
+    end
     @archive ||= []
     
     respond_to do |format|
